@@ -2,7 +2,7 @@
 ----------------
 
 docker run -d -p 27017:27017 --name shopping-mongo mongo
-
+docker-compose -f .\docker-compose.yml -f .\docker-compose.override.yml up -d
 ---------------------------------------------------------------------
 goto mongo ==> mongosh
 Commands in Mongo
