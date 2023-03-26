@@ -13,3 +13,5 @@ Create Collection ==> db.createCollection('TableName')
 Insert ==> db.TableName.insertMany()
 Select ==> db.TableName.find({}).pretty()
 Remove ==> db.TableName.remove({})
+-------------------------------------------------
+docker run -d -p 3000:3000 mongoclient/mongoclient
