@@ -1,0 +1,15 @@
+﻿docker pull monogo
+----------------
+
+docker run -d -p 27017:27017 --name shopping-mongo mongo
+
+---------------------------------------------------------------------
+goto mongo ==> mongosh
+Commands in Mongo
+show Databases ==> show dbs
+show tables in Database ==> show collections
+Create and Use Database ==> use databaseName
+Create Collection ==> db.createCollection('TableName')
+Insert ==> db.TableName.insertMany()
+Select ==> db.TableName.find({}).pretty()
+Remove ==> db.TableName.remove({})
