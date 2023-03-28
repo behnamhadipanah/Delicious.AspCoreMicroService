@@ -6,7 +6,7 @@ namespace Basket.Api.Repositories;
 
 public class BasketRepository : IBasketRepository
 {
-    private readonly  IDistributedCache _redisCache;
+    private readonly IDistributedCache _redisCache;
 
     public BasketRepository(IDistributedCache redisCache)
     {
@@ -15,7 +15,7 @@ public class BasketRepository : IBasketRepository
     public async Task<ShoppingCart> GetUserBasket(string username)
     {
         var basket = await _redisCache.GetStringAsync(username);
-        if (string.IsNullOrEmpty(basket)) 
+        if (string.IsNullOrEmpty(basket))
             return null;
 
         return JsonConvert.DeserializeObject<ShoppingCart>(basket);
@@ -30,7 +30,7 @@ public class BasketRepository : IBasketRepository
     public async Task<bool> DeleteBasket(string username)
     {
         await _redisCache.RemoveAsync(username);
-        var result = GetUserBasket(username);
+        var result = await GetUserBasket(username);
         if (result is null) return true;
 
         return false;
