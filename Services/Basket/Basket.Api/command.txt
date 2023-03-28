@@ -1,0 +1,5 @@
+﻿#redis
+ for check redis in docker CLI and get port ==> redis-cli
+ insert in redis ==> set key value (Ex: set firstname behnam)
+ select data with key ==> get key (Ex: get firstname)
+
