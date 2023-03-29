@@ -52,15 +52,27 @@ public class DiscountRepository : IDiscountRepository
 
     }
 
-    public Task<bool> UpdateDiscount(Coupon coupon)
+    public async Task<bool> UpdateDiscount(Coupon coupon)
     {
-        throw new NotImplementedException();
+        using var connection = new NpgsqlConnection
+            (_configuration.GetValue<string>("DatabaseSettings:ConnectionString"));
+        var result = await connection.ExecuteAsync(
+            "Update Coupon SET ProductName=@ProductName,Description=@Description,Amount=@Amount WHERE Id=@CouponID",
+            new { ProductName = coupon.ProductName, Description = coupon.Description, Amount = coupon.Amount, CouponId=coupon.Id });
+        if (result == 0) return false;
+        return true;
     }
 
-    public Task<bool> DeleteDiscount(string productName)
+    public async Task<bool> DeleteDiscount(string productName)
     {
-        throw new NotImplementedException();
+        using var connection = new NpgsqlConnection
+            (_configuration.GetValue<string>("DatabaseSettings:ConnectionString"));
+        var result = await connection.ExecuteAsync("DELETE FROM Coupon Where ProductName=@ProductName",
+            new { ProductName = productName });
+
+        if (result == 0) return false;
+        return true;
     }
 
-    
+
 }
