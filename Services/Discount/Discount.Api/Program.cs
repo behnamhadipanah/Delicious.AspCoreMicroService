@@ -1,4 +1,5 @@
 
+using Discount.Api.Extentions;
 using Discount.Api.Repositories;
 
 namespace Discount.Api
@@ -7,8 +8,9 @@ namespace Discount.Api
     {
         public static void Main(string[] args)
         {
+            
             var builder = WebApplication.CreateBuilder(args);
-
+            
             // Add services to the container.
             builder.Services.AddTransient<IDiscountRepository, DiscountRepository>();
             builder.Services.AddControllers();
@@ -17,7 +19,8 @@ namespace Discount.Api
             builder.Services.AddSwaggerGen();
 
             var app = builder.Build();
-
+            // Migration
+            app.MigrateDatabase<Program>();
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
