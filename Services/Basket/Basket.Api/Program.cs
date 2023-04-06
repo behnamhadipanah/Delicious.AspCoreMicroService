@@ -1,5 +1,7 @@
 
+using Basket.Api.GrpcServices;
 using Basket.Api.Repositories;
+using Discount.Grpc.Protos;
 
 namespace Basket.Api
 {
@@ -22,7 +24,12 @@ namespace Basket.Api
 
             builder.Services.AddScoped<IBasketRepository, BasketRepository>();
             builder.Services.AddControllers();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+            builder.Services.AddGrpcClient<DiscountProtoService.DiscountProtoServiceClient>
+            (option =>
+            {
+                option.Address = new Uri(builder.Configuration["GrpcSettings:DiscountUrl"]);
+            });
+            builder.Services.AddScoped<DiscountGrpcService>();
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
