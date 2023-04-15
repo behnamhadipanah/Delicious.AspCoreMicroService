@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Mail\" />
     <Folder Include="Repositories\" />
     <Folder Include="Persistence\" />
   </ItemGroup>
