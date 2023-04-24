@@ -29,7 +29,16 @@ public class OrderContextSeed
                 EmailAddress = "behnamhadipanah@gmail.com",
                 City = "Tehran",
                 Country = "Iran",
-                TotalPrice = 1000
+                TotalPrice = 1000,
+                BankName = "SamanBank",
+                PaymentMethod = 1,
+                RefCode="132548MAS48",
+                CreatedBy = Guid.NewGuid().ToString(),
+                LastModifiedBy = Guid.NewGuid().ToString(),
+                CreateDate = DateTime.Now,
+                ModifiedDate = DateTime.Now
+
+
 
             },
         };
