@@ -81,9 +81,11 @@ services:
       - ASPNETCORE_ENVIRONMENT=Development
       - "CacheSettings:ConnectionString=basketDb:6379"
       - "GrpcSettings:DiscountUrl=http://discount.grpc"
- 
+      - "EventBusSettings:HostAddress=amqp://guest:guest@rabbitmq:5672"
+  
     depends_on:
       - basketDb
+      - rabbitmq
     ports:
       - "8001:80"
 
@@ -113,10 +115,12 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - "ConnectionStrings:OrderingConnectionString=Server=orderDb;Database=OrderDb;User Id=sa;Password=bhSa@123456;TrustServerCertificate=True"
+      - "EventBusSettings:HostAddress=amqp://guest:guest@rabbitmq:5672"
 
     depends_on:
       - orderDb
-     
+      - rabbitmq
+
     ports:
       - "8004:80"
       
