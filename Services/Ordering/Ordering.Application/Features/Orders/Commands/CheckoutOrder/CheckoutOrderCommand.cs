@@ -5,7 +5,7 @@ namespace Ordering.Application.Features.Orders.Commands.CheckoutOrder;
 public class CheckoutOrderCommand:IRequest<int>
 {
     public string Username { get; set; }
-    public decimal TotalPrice { get; set; }
+    public long TotalPrice { get; set; }
     public string FirstName { get; set; }
     public string LastName { get; set; }
     public string EmailAddress { get; set; }
@@ -15,7 +15,7 @@ public class CheckoutOrderCommand:IRequest<int>
     public string RefCode { get; set; }
     public int PaymentMethod { get; set; }
 
-    public CheckoutOrderCommand(string username, decimal totalPrice, string firstName, string lastName, string emailAddress, string country, string city, string bankName, string refCode, int paymentMethod)
+    public CheckoutOrderCommand(string username, long totalPrice, string firstName, string lastName, string emailAddress, string country, string city, string bankName, string refCode, int paymentMethod)
     {
         Username = username;
         TotalPrice = totalPrice;

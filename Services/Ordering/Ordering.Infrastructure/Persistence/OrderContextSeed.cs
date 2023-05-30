@@ -37,9 +37,6 @@ public class OrderContextSeed
                 LastModifiedBy = Guid.NewGuid().ToString(),
                 CreateDate = DateTime.Now,
                 ModifiedDate = DateTime.Now
-
-
-
             },
         };
     }

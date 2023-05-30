@@ -18,11 +18,11 @@ namespace Basket.Api.Entities
         
 
         public List<ShoppingCartItem> ShoppingCartItems { get; set; }
-        public decimal TotalPrice
+        public long TotalPrice
         {
             get
             {
-                decimal totalPrice = 0;
+                long totalPrice = 0;
 
                 if (ShoppingCartItems is not null && ShoppingCartItems.Any())
                 {

@@ -6,7 +6,8 @@ namespace Ordering.Api.Extensions
 {
     public static class HostExtensions
     {
-        public static IHost MigrationDatabase<TContext>(this IHost host, Action<TContext, IServiceProvider> seeder,
+        public static IHost MigrationDatabase<TContext>(this IHost host,
+            Action<TContext, IServiceProvider> seeder,
             int? retry = 0) where TContext : DbContext
         {
             int retryForAvailability = retry.Value;

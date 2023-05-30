@@ -20,7 +20,8 @@ where TRequest : IRequest<TResponse>
         }
         catch (Exception e)
         {
-            _logger.LogError(e,$"Application request : Unhandled exception for request {typeof(TRequest).Name} {request}");
+            var requestName = typeof(TRequest).Name;
+            _logger.LogError(e,$"Application request : Unhandled exception for request {requestName} {request}");
             throw;
         }
     }
