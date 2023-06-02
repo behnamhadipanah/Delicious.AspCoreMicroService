@@ -24,6 +24,8 @@ namespace Shopping.Aggregator.Controllers
         public async Task<ActionResult<ShoppingModel>> GetShopping(string userName)
         {
             var basket = await _basketService.GetBasket(userName);
+            if (basket is null) { return null; }
+
             foreach (var item in basket.Items)
             {
                 var product = await _catalogService.GetCatalog(item.ProductId);
