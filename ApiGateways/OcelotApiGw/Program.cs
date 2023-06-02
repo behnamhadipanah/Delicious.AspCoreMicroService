@@ -1,10 +1,16 @@
-using Microsoft.Extensions.Logging;
+
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
+using Ocelot.Cache.CacheManager;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddOcelot();
+builder.Services.AddOcelot()
+      .AddCacheManager(x =>
+      {
+          x.WithDictionaryHandle();
+      });
+
 builder.Host
     .ConfigureAppConfiguration((hostingContext, config) =>
     {

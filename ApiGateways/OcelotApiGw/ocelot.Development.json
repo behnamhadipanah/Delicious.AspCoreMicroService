@@ -1,3 +1,206 @@
-{
+// BFF => Backend for FrontEnd
 
+{
+  "Routes": [
+
+    //catalog.Api
+    {
+
+      "DownstreamPathTemplate": "/api/v1/Catalog",
+      "UpstreamPathTemplate": "/Catalog",
+      "UpstreamHttpMethod": [
+        "Get",
+        "POST",
+        "PUT"
+      ],
+      "FileCacheOptions": {
+        "TtlSeconds": 30
+      },
+
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": true,
+        "Period": "5s",
+        "PeriodTimespan": 1,
+        "Limit": 1
+      },
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "catalog.Api",
+          "Port": 80
+        }
+      ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/v1/Catalog/{id}",
+      "UpstreamPathTemplate": "/Catalog/{id}",
+      "UpstreamHttpMethod": [
+        "Get",
+        "DELETE"
+      ],
+
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": true,
+        "Period": "5s",
+        "PeriodTimespan": 1,
+        "Limit": 1
+      },
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "catalog.Api",
+          "Port": 80        }
+      ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/v1/Catalog/GetProductByCategory/{category}",
+      "UpstreamPathTemplate": "/Catalog/{category}",
+      "UpstreamHttpMethod": [
+        "Get"
+      ],
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": true,
+        "Period": "5s",
+        "PeriodTimespan": 1,
+        "Limit": 1
+      },
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "catalog.Api",
+          "Port": 80
+        }
+      ]
+    },
+
+    //Basket.Api
+    {
+
+      "DownstreamPathTemplate": "/api/v1/Basket/{username}",
+      "UpstreamPathTemplate": "/Basket/{username}",
+      "UpstreamHttpMethod": [
+        "Get",
+        "DELETE"
+      ],
+
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": true,
+        "Period": "5s",
+        "PeriodTimespan": 1,
+        "Limit": 1
+      },
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "basket.Api",
+          "Port": 80
+        }
+      ]
+    },
+    {
+
+      "DownstreamPathTemplate": "/api/v1/Basket/",
+      "UpstreamPathTemplate": "/Basket/",
+      "UpstreamHttpMethod": [
+        "POST"
+      ],
+
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": true,
+        "Period": "5s",
+        "PeriodTimespan": 1,
+        "Limit": 1
+      },
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "basket.Api",
+          "Port": 80
+        }
+      ]
+    },
+
+    //Discount.Api
+    {
+
+      "DownstreamPathTemplate": "/api/v1/Discount/{productName}",
+      "UpstreamPathTemplate": "/Discount/{productName}",
+      "UpstreamHttpMethod": [
+        "Get",
+        "DELETE"
+      ],
+
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": true,
+        "Period": "5s",
+        "PeriodTimespan": 1,
+        "Limit": 1
+      },
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "discount.Api",
+          "Port": 80
+        }
+      ]
+    },
+    {
+
+      "DownstreamPathTemplate": "/api/v1/Discount",
+      "UpstreamPathTemplate": "/Discount",
+      "UpstreamHttpMethod": [
+        "POST",
+        "PUT"
+      ],
+
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": true,
+        "Period": "5s",
+        "PeriodTimespan": 1,
+        "Limit": 1
+      },
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "basket.Api",
+          "Port": 80
+        }
+      ]
+    },
+
+    //Order.Api
+    {
+
+      "DownstreamPathTemplate": "/api/v1/Order/{username}",
+      "UpstreamPathTemplate": "/Order/{username}",
+      "UpstreamHttpMethod": [
+        "GET"
+      ],
+
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": true,
+        "Period": "5s",
+        "PeriodTimespan": 1,
+        "Limit": 1
+      },
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "order.Api",
+          "Port": 80
+        }
+      ]
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "https://localhost:5010"
+  }
 }

@@ -13,6 +13,17 @@
         "POST",
         "PUT"
       ],
+      "FileCacheOptions": {
+        "TtlSeconds": 30
+      },
+
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": true,
+        "Period": "5s",
+        "PeriodTimespan": 1,
+        "Limit": 1
+      },
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
@@ -28,6 +39,14 @@
         "Get",
         "DELETE"
       ],
+
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": true,
+        "Period": "5s",
+        "PeriodTimespan": 1,
+        "Limit": 1
+      },
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
@@ -42,6 +61,13 @@
       "UpstreamHttpMethod": [
         "Get"
       ],
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": true,
+        "Period": "5s",
+        "PeriodTimespan": 1,
+        "Limit": 1
+      },
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
@@ -60,6 +86,14 @@
         "Get",
         "DELETE"
       ],
+
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": true,
+        "Period": "5s",
+        "PeriodTimespan": 1,
+        "Limit": 1
+      },
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
@@ -75,6 +109,14 @@
       "UpstreamHttpMethod": [
         "POST"
       ],
+
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": true,
+        "Period": "5s",
+        "PeriodTimespan": 1,
+        "Limit": 1
+      },
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
@@ -93,6 +135,14 @@
         "Get",
         "DELETE"
       ],
+
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": true,
+        "Period": "5s",
+        "PeriodTimespan": 1,
+        "Limit": 1
+      },
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
@@ -109,6 +159,14 @@
         "POST",
         "PUT"
       ],
+
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": true,
+        "Period": "5s",
+        "PeriodTimespan": 1,
+        "Limit": 1
+      },
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
@@ -126,6 +184,14 @@
       "UpstreamHttpMethod": [
         "GET"
       ],
+
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": true,
+        "Period": "5s",
+        "PeriodTimespan": 1,
+        "Limit": 1
+      },
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
